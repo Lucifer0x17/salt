@@ -1,0 +1,38 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts --files",
+    "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src"
+  },
+  "author": "Lucifer",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^4.5.0",
+    "argon2": "^0.30.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "zod": "^3.19.1"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/lodash": "^4.14.186",
+    "@types/node": "^17.0.12",
+    "prisma": "^4.5.0",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig": "^7.0.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.4"
+  }
+}
