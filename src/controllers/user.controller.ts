@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { throwError } from "../helpers/ErrorHandler.helper";
 import { asyncWrap } from "../middlewares/async.middleware";
 import { CreateUserInput } from "../schemas/user.schema";
-import { createUser } from "../services/user.service";
+import { createUser, findUserById } from "../services/user.service";
 import { hashPassword } from "../utils/password";
 
 
@@ -26,8 +26,9 @@ export const createUserController = asyncWrap(
 
 export const getUserController = asyncWrap(
     async (req: Request, res: Response, next: NextFunction) => {
-        const user = res.locals.user;
+        const { id } = res.locals.user;
+        const user = await findUserById(id);
         if (!user) throwError(404, "Please Log in")
-        res.send({ id: user.id, email: user.email })
+        res.send({ id: user!.id, email: user!.email, name: user!.name })
     }
 )
