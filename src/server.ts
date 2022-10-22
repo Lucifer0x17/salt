@@ -14,7 +14,12 @@ app.use(cookieParser())
 // ============================================================
 // Reconfig origin later
 // ============================================================
-app.use(cors({ origin: 'https://jade-florentine-95c5d8.netlify.app/', credentials: true }));
+app.use(cors({ origin: 'https://jade-florentine-95c5d8.netlify.app', credentials: true }));
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
 
 app.use('/api/v1', router)
 
