@@ -14,7 +14,7 @@ app.use(cookieParser())
 // ============================================================
 // Reconfig origin later
 // ============================================================
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: 'https://jade-florentine-95c5d8.netlify.app/', credentials: true }));
 
 app.use('/api/v1', router)
 
